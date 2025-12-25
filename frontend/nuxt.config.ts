@@ -8,4 +8,9 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  runtimeConfig: {
+    public: {
+      strapiUrl: import.meta.env.NUXT_PUBLIC_STRAPI_URL,
+    },
+  },
 });
