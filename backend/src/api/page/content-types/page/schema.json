@@ -19,6 +19,14 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.hero",
+        "sections.services",
+        "sections.partners"
+      ]
     }
   }
 }

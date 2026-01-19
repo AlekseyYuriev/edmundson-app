@@ -1,5 +1,57 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SectionsHero extends Struct.ComponentSchema {
+  collectionName: 'components_sections_heroes';
+  info: {
+    displayName: 'hero';
+  };
+  attributes: {
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsPartners extends Struct.ComponentSchema {
+  collectionName: 'components_sections_partners';
+  info: {
+    displayName: 'partners';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsServices extends Struct.ComponentSchema {
+  collectionName: 'components_sections_services';
+  info: {
+    displayName: 'services';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsTitle extends Struct.ComponentSchema {
+  collectionName: 'components_sections_titles';
+  info: {
+    displayName: 'title';
+  };
+  attributes: {
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedImage extends Struct.ComponentSchema {
+  collectionName: 'components_shared_images';
+  info: {
+    displayName: 'image';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -62,14 +114,41 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSubtitle extends Struct.ComponentSchema {
+  collectionName: 'components_shared_subtitles';
+  info: {
+    displayName: 'subtitle';
+  };
+  attributes: {
+    subtitle: Schema.Attribute.String;
+  };
+}
+
+export interface SharedTitle extends Struct.ComponentSchema {
+  collectionName: 'components_shared_titles';
+  info: {
+    displayName: 'title';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'sections.hero': SectionsHero;
+      'sections.partners': SectionsPartners;
+      'sections.services': SectionsServices;
+      'sections.title': SectionsTitle;
+      'shared.image': SharedImage;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.subtitle': SharedSubtitle;
+      'shared.title': SharedTitle;
     }
   }
 }
