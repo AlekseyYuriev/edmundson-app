@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+:root {
+    --ee_black: #000000;
+    --ee_white: #FFFFFF;
+    --ee_primary: #00708B;
+    --ee_secondary: #F16722;
+    --ee_tertiary: #F16722;
+    font-family: "Poppins", sans-serif;
+  }

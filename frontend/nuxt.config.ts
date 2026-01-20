@@ -13,4 +13,16 @@ export default defineNuxtConfig({
       strapiUrl: import.meta.env.NUXT_PUBLIC_STRAPI_URL,
     },
   },
+  modules: [
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          Poppins: [300, 400, 600, 700],
+        },
+        download: true,
+        outputDir: "app/assets",
+      },
+    ],
+  ],
 });
