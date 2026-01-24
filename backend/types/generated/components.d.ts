@@ -28,16 +28,10 @@ export interface SectionsServices extends Struct.ComponentSchema {
     displayName: 'services';
   };
   attributes: {
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface SectionsTitle extends Struct.ComponentSchema {
-  collectionName: 'components_sections_titles';
-  info: {
-    displayName: 'title';
-  };
-  attributes: {
+    service_cards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::service-card.service-card'
+    >;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
   };
@@ -141,7 +135,6 @@ declare module '@strapi/strapi' {
       'sections.hero': SectionsHero;
       'sections.partners': SectionsPartners;
       'sections.services': SectionsServices;
-      'sections.title': SectionsTitle;
       'shared.image': SharedImage;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

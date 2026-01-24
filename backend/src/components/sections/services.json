@@ -7,6 +7,14 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "service_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-card.service-card"
     }
   },
   "config": {}

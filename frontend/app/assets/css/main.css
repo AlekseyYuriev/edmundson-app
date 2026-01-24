@@ -1,12 +1,12 @@
-@import "tailwindcss";
-@config "../../../tailwind.config.ts";
+@import 'tailwindcss';
+@config '../../../tailwind.config.ts';
 
 :root {
-    --ee_black: #000000;
-    --ee_white: #FFFFFF;
-    --ee_primary: #00708B;
-    --ee_secondary: #F16722;
-    --ee_tertiary: #F16722;
-    font-family: "Poppins", sans-serif;
-  }
-  
+  --ee_black: #000000;
+  --ee_white: #ffffff;
+  --ee_primary: #00708b;
+  --ee_secondary: #f16722;
+  --ee_tertiary: #f16722;
+  --ee_card_background: #f7f7f7;
+  font-family: 'Poppins', sans-serif;
+}

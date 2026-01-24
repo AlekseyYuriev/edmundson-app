@@ -1,38 +1,40 @@
 <script setup lang="ts">
+import type { HeroData } from '~/types/section';
 import EEIconArrow from '../icon/EEIconArrow.vue';
 
-interface HeroData {
-  title: string
-  subtitle: string
-  image?: { url?: string }
-}
-
 const props = defineProps<{
-  data: HeroData
-}>()
+  data: HeroData;
+}>();
 
-const imageUrl = computed(() =>
-  getStrapiMedia(props.data.image)
-);
+const imageUrl = computed(() => getStrapiMedia(props.data.image));
 </script>
 
 <template>
-  <div class="bg-[var(--ee_primary)] px-[160px] flex gap-6 pb-[70px]">
-    <div class="flex flex-col gap-xl items-center justify-center text-white w-[686px] shrink-0 py-[55px]">
+  <section class="flex gap-6 bg-[var(--ee_primary)] px-[160px] pb-[70px]">
+    <div
+      class="gap-xl flex w-[686px] shrink-0 flex-col items-center justify-center py-[55px] text-white"
+    >
       <h1 class="text-[80px] font-bold">
         {{ props.data.title }}
       </h1>
       <p class="mt-4 text-xl">
         {{ props.data.subtitle }}
       </p>
-      <NuxtLink to="/about"
-        class="flex items-center gap-xs uppercase self-start w-[165px] h-[40px] border border-white py-xs px-ms rounded-lg text-white transition-colors duration-200 hover:text-[var(--ee_secondary)] hover:border-[var(--ee_secondary)]">
-        <span class="text-lg font-semibold leading-lg">Learn More</span>
-        <EEIconArrow class="w-lg h-lg p-xxs" />
+      <NuxtLink
+        to="/about"
+        class="gap-xs py-xs px-ms flex h-[40px] w-[165px] items-center self-start rounded-lg border border-white text-white uppercase transition-colors duration-200 hover:border-[var(--ee_secondary)] hover:text-[var(--ee_secondary)]"
+      >
+        <span class="leading-lg text-lg font-semibold">Learn More</span>
+        <EEIconArrow class="h-lg p-xxs w-lg" />
       </NuxtLink>
     </div>
-    <div class=" flex-1">
-      <NuxtImg v-if="imageUrl" :src="imageUrl" alt="Hero Section Image" class="w-full h-full object-cover rounded-lg" />
+    <div class="flex-1">
+      <NuxtImg
+        v-if="imageUrl"
+        :src="imageUrl"
+        alt="Hero Section Image"
+        class="h-full w-full rounded-lg object-cover"
+      />
     </div>
-  </div>
+  </section>
 </template>
