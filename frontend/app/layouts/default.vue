@@ -33,7 +33,7 @@ import Navbar from '~/components/header/Navbar.vue';
   max-width: 2560px;
   background-color: var(--ee_white);
   margin: auto;
-  padding-top: 8rem;
+  padding-top: 120px;
   height: fit-content;
 }
 </style>
