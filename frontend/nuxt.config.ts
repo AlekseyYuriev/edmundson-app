@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     },
   },
   modules: [
+    "@nuxt/image",
     [
       "@nuxtjs/google-fonts",
       {
