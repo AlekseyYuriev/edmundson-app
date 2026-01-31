@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LocationData } from '~/types/section';
+import type { LocationCardData, LocationData } from '~/types/section';
 import LocationCard from './LocationCard.vue';
 import LocationMap from './LocationMap.vue';
 
@@ -8,6 +8,8 @@ const props = defineProps<{
 }>();
 
 const locationCards = computed(() => props.data.locations);
+
+const selectedLocation = ref<LocationCardData | null>(null);
 </script>
 
 <template>
@@ -23,9 +25,14 @@ const locationCards = computed(() => props.data.locations);
           v-for="card in locationCards"
           :key="card.id"
           :data="card"
+          @view-on-map="selectedLocation = $event"
         />
       </div>
-      <LocationMap class="flex-1" :locations="locationCards" />
+      <LocationMap
+        class="flex-1"
+        :locations="locationCards"
+        :selected-location="selectedLocation"
+      />
     </div>
   </section>
 </template>

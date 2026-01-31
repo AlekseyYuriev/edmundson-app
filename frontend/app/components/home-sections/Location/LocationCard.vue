@@ -5,6 +5,10 @@ import EEIconMap from '~/components/icon/EEIconMap.vue';
 const props = defineProps<{
   data: LocationCardData;
 }>();
+
+const emit = defineEmits<{
+  'view-on-map': [location: LocationCardData];
+}>();
 </script>
 
 <template>
@@ -37,5 +41,13 @@ const props = defineProps<{
         <p>{{ props.data.address.postcode }}</p>
       </div>
     </div>
+
+    <button
+      type="button"
+      class="mt-sm mb-md py-xs px-xs inline-flex w-fit cursor-pointer items-center self-start rounded-lg border border-[var(--ee_primary)] text-[14px] font-semibold text-[var(--ee_primary)] transition-colors hover:bg-[var(--ee_primary)] hover:text-white"
+      @click="emit('view-on-map', props.data)"
+    >
+      VIEW ON MAP
+    </button>
   </div>
 </template>

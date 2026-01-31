@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import EEIconMap from '~/components/icon/EEIconMap.vue';
+import EEIconPhone from '~/components/icon/EEIconPhone.vue';
 import type { LocationCardData } from '~/types/section';
 
 defineOptions({ inheritAttrs: false });
@@ -6,11 +8,13 @@ defineOptions({ inheritAttrs: false });
 const props = withDefaults(
   defineProps<{
     locations: LocationCardData[];
+    selectedLocation?: LocationCardData | null;
     zoom?: number;
     tileUrl?: string;
     tileAttribution?: string;
   }>(),
   {
+    selectedLocation: null,
     zoom: 6,
     tileUrl: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     tileAttribution:
@@ -71,6 +75,22 @@ watch(
   },
   { deep: true }
 );
+
+watch(
+  () => props.selectedLocation,
+  async (loc) => {
+    const map = mapRef.value;
+    if (!map || !loc) return;
+    if (!Number.isFinite(loc.latitude) || !Number.isFinite(loc.longitude))
+      return;
+
+    await nextTick();
+    map.flyTo([loc.latitude, loc.longitude], 14, {
+      animate: true,
+      duration: 0.6,
+    });
+  }
+);
 </script>
 
 <template>
@@ -106,10 +126,34 @@ watch(
           :key="l.id"
           :lat-lng="[l.latitude, l.longitude]"
         >
-          <LPopup>
-            <div class="min-w-[180px]">
-              <div class="font-semibold">{{ l.title }}</div>
-              <div class="text-sm opacity-80">{{ l.address }}</div>
+          <LPopup :options="{ closeButton: false }">
+            <div class="min-w-[320px]">
+              <h4
+                class="mb-xs text-[18px] font-medium text-[var(--ee_primary)]"
+              >
+                {{ l.title }}
+              </h4>
+              <div class="gap-xs mb-xxs flex items-center">
+                <EEIconMap class="h-[24px] w-[24px] flex-shrink-0 self-start" />
+                <div class="mt-[2px] text-[16px] font-light">
+                  <p class="!m-0">{{ l.address.addressLine1 }}</p>
+                  <p class="!m-0">{{ l.address.addressLine2 }}</p>
+                  <p class="!m-0">{{ l.address.addressLine3 }}</p>
+                  <p class="!m-0">{{ l.address.city }}</p>
+                  <p class="!m-0">{{ l.address.district }}</p>
+                  <p class="!m-0">{{ l.address.postcode }}</p>
+                </div>
+              </div>
+              <div class="gap-xs flex items-center">
+                <EEIconPhone
+                  class="h-[24px] w-[24px] flex-shrink-0 self-start text-[var(--ee_primary)]"
+                />
+                <div class="mt-[2px] text-[16px] font-light">
+                  <p class="!m-0">{{ l.phone }}</p>
+                  <p class="!m-0">{{ l.manager }}</p>
+                  <p class="!m-0 underline">{{ l.email }}</p>
+                </div>
+              </div>
             </div>
           </LPopup>
         </LMarker>
