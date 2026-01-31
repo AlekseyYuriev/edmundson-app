@@ -18,6 +18,7 @@ export interface SectionsLocation extends Struct.ComponentSchema {
     displayName: 'location';
   };
   attributes: {
+    locations: Schema.Attribute.Relation<'oneToMany', 'api::location.location'>;
     title: Schema.Attribute.String;
   };
 }

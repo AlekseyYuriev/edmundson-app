@@ -42,4 +42,27 @@ export interface PartnerCardData {
 
 export interface LocationData {
   title: string;
+  locations: LocationCardData[];
+}
+
+export interface LocationCardData {
+  id: number;
+  title: string;
+  manager: string;
+  phone: string;
+  email: string;
+  address: AddressData;
+  order: number;
+  latitude: number;
+  longitude: number;
+}
+
+export interface AddressData {
+  id: number;
+  addressLine1: string;
+  addressLine2: string;
+  addressLine3: string;
+  city: string;
+  district: string;
+  postcode: string;
 }

@@ -7,6 +7,11 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "locations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::location.location"
     }
   },
   "config": {}
