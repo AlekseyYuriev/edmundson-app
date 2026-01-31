@@ -25,3 +25,21 @@ export interface ServiceCardData {
   ];
   image?: { url?: string };
 }
+
+export interface PartnersData {
+  title: string;
+  partner_cards: PartnerCardData[];
+}
+
+export interface PartnerCardData {
+  id: number;
+  title: string;
+  subtitle: string;
+  link: string;
+  image?: { url?: string };
+  logo?: { url?: string };
+}
+
+export interface LocationData {
+  title: string;
+}

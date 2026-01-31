@@ -6,5 +6,5 @@ export const useStrapiFetch = <T>(url: string) => {
 
 export const getStrapiMedia = (media?: { url?: string }) => {
   const config = useRuntimeConfig();
-  return media?.url ? `${config.public.strapiUrl}${media.url}` : "";
+  return media?.url ? `${config.public.strapiUrl}${media.url}` : '';
 };

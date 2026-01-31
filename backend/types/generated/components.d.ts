@@ -12,12 +12,26 @@ export interface SectionsHero extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsLocation extends Struct.ComponentSchema {
+  collectionName: 'components_sections_locations';
+  info: {
+    displayName: 'location';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionsPartners extends Struct.ComponentSchema {
   collectionName: 'components_sections_partners';
   info: {
     displayName: 'partners';
   };
   attributes: {
+    partner_cards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::partner-card.partner-card'
+    >;
     title: Schema.Attribute.String;
   };
 }
@@ -133,6 +147,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'sections.hero': SectionsHero;
+      'sections.location': SectionsLocation;
       'sections.partners': SectionsPartners;
       'sections.services': SectionsServices;
       'shared.image': SharedImage;

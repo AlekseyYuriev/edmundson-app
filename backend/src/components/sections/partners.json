@@ -7,6 +7,11 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "partner_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partner-card.partner-card"
     }
   },
   "config": {}

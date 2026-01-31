@@ -4,7 +4,8 @@ export const usePages = () => {
   const populate =
     '/api/pages' +
     '?populate[sections][on][sections.hero][populate]=*' +
-    '&populate[sections][on][sections.partners][populate]=*' +
+    '&populate[sections][on][sections.location][populate]=*' +
+    '&populate[sections][on][sections.partners][populate][partner_cards][populate]=*' +
     '&populate[sections][on][sections.services][populate][service_cards][populate]=*';
 
   return useQuery({

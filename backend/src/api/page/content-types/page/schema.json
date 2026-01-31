@@ -25,7 +25,8 @@
       "components": [
         "sections.hero",
         "sections.services",
-        "sections.partners"
+        "sections.partners",
+        "sections.location"
       ]
     }
   }

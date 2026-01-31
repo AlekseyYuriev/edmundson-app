@@ -1,13 +1,15 @@
 <script setup>
 import { usePages } from '~/composables/usePages';
 import HeroSection from '~/components/home-sections/HeroSection.vue';
-import PartnersSection from '~/components/home-sections/PartnersSection.vue';
+import PartnersSection from '~/components/home-sections/Partners/PartnersSection.vue';
 import ServicesSection from '~/components/home-sections/Services/ServicesSection.vue';
+import LocationSection from '~/components/home-sections/Location/LocationSection.vue';
 
 const sectionMap = {
   'sections.hero': HeroSection,
   'sections.services': ServicesSection,
   'sections.partners': PartnersSection,
+  'sections.location': LocationSection,
 };
 
 const { data, isLoading, error } = usePages();
