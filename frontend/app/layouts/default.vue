@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import Navbar from '~/components/header/Navbar.vue';
+import Footer from '~/components/footer/Footer.vue';
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import Navbar from '~/components/header/Navbar.vue';
     <main class="main-content w-full bg-white">
       <NuxtPage :page-key="(route) => route.fullPath" />
     </main>
+    <Footer />
   </div>
 </template>
 
