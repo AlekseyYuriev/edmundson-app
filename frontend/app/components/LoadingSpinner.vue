@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-transparent"
+    class="flex min-h-[calc(100vh-20.75rem)] w-full items-center justify-center bg-transparent"
   >
     <span class="loader"></span>
   </div>

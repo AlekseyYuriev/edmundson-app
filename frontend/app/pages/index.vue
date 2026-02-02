@@ -19,7 +19,10 @@ const sections = computed(() => data.value?.data?.[0]?.sections || []);
 
 <template>
   <LoadingSpinner v-if="isLoading" />
-  <div v-if="error" class="flex h-full items-center justify-center">
+  <div
+    v-if="error"
+    class="flex h-full min-h-[calc(100vh-20.75rem)] items-center justify-center"
+  >
     <h1 class="mt-32 text-2xl font-bold">
       Error loading page. Please try again later.
     </h1>
