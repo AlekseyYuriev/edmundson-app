@@ -688,6 +688,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'sections.services',
         'sections.partners',
         'sections.location',
+        'sections.policy',
       ]
     >;
     slug: Schema.Attribute.UID;

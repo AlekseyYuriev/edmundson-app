@@ -15,15 +15,15 @@ useSeoMeta({
       <div
         class="rounded-2xl border border-[var(--ee_card_border)] bg-white p-8"
       >
-        <p class="text-sm font-semibold text-[var(--ee_text_footer)]/70">
+        <p class="text-sm font-semibold text-[var(--ee_color_text)]/70">
           {{ statusCode }}
         </p>
 
-        <h1 class="mt-2 text-3xl font-bold text-[var(--ee_text_footer)]">
+        <h1 class="mt-2 text-3xl font-bold text-[var(--ee_color_text)]">
           {{ isNotFound ? 'Not found' : 'Something went wrong' }}
         </h1>
 
-        <p class="mt-3 text-base text-[var(--ee_text_footer)]/80">
+        <p class="mt-3 text-base text-[var(--ee_color_text)]/80">
           {{
             isNotFound
               ? "That route doesn't exist."

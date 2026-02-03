@@ -13,14 +13,16 @@ const props = defineProps({
   <footer
     class="relative bottom-0 flex w-full flex-col items-center justify-center px-[160px]"
   >
-    <div class="pb-lg flex w-full flex-1 justify-between py-[36px]">
+    <div
+      class="pb-lg flex w-full flex-1 flex-col justify-between gap-8 py-[36px] xl:flex-row xl:gap-0"
+    >
       <img
         src="~/assets/images/logo-footer.png"
         alt="Edmundson Logo"
-        class="h-[40px]"
+        class="h-[40px] w-auto max-w-[244px]"
       />
       <div
-        class="gap-sm flex max-w-[229px] flex-col text-lg font-light text-[var(--ee_text_footer)]"
+        class="gap-sm flex max-w-[229px] flex-col text-lg font-light text-[var(--ee_color_text)]"
       >
         <p>Edmundson House</p>
         <p class="text-ms">
@@ -28,18 +30,18 @@ const props = defineProps({
         </p>
       </div>
       <div
-        class="gap-sm text-ms flex flex-col font-light text-[var(--ee_text_footer)]"
+        class="gap-sm text-ms flex flex-col font-light text-[var(--ee_color_text)]"
       >
         <p>Registration No.- 2667012</p>
         <p>edmundson@eel.co.uk</p>
       </div>
       <div
-        class="gap-sm text-ms flex flex-col font-semibold text-[var(--ee_text_footer)]"
+        class="gap-sm text-ms flex flex-col font-semibold text-[var(--ee_color_text)]"
       >
-        <NuxtLink to="policies/terms-and-conditions">
+        <NuxtLink to="/policies/terms-and-conditions">
           <p class="cursor-pointer">Terms and Conditions</p>
         </NuxtLink>
-        <NuxtLink to="policies/privacy-policy">
+        <NuxtLink to="/policies/privacy-policy">
           <p class="cursor-pointer">Privacy Policy</p>
         </NuxtLink>
       </div>
@@ -59,7 +61,7 @@ const props = defineProps({
       </ul>
     </div>
     <div class="pt-sm pb-[36px]">
-      <span class="text-ms font-light text-[var(--ee_text_footer)]"
+      <span class="text-ms font-light text-[var(--ee_color_text)]"
         >© Copyright Edmundson Electrical, All rights reserved 2022-2025.</span
       >
     </div>

@@ -66,3 +66,14 @@ export interface AddressData {
   district: string;
   postcode: string;
 }
+
+export interface PolicyData {
+  type: string;
+  children: [
+    {
+      type: string;
+      text: string;
+      bold?: boolean;
+    },
+  ];
+}

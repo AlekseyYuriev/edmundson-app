@@ -16,7 +16,7 @@ useSeoMeta({
   >
     <p class="text-[10rem] font-semibold">404</p>
 
-    <h1 class="mt-2 text-3xl font-bold text-[var(--ee_text_footer)]">
+    <h1 class="mt-2 text-3xl font-bold text-[var(--ee_color_text)]">
       Oops! Page not found
     </h1>
 

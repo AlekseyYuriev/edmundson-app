@@ -37,6 +37,17 @@ export interface SectionsPartners extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsPolicy extends Struct.ComponentSchema {
+  collectionName: 'components_sections_policies';
+  info: {
+    displayName: 'policy';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionsServices extends Struct.ComponentSchema {
   collectionName: 'components_sections_services';
   info: {
@@ -150,6 +161,7 @@ declare module '@strapi/strapi' {
       'sections.hero': SectionsHero;
       'sections.location': SectionsLocation;
       'sections.partners': SectionsPartners;
+      'sections.policy': SectionsPolicy;
       'sections.services': SectionsServices;
       'shared.image': SharedImage;
       'shared.media': SharedMedia;

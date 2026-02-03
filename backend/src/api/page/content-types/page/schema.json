@@ -26,7 +26,8 @@
         "sections.hero",
         "sections.services",
         "sections.partners",
-        "sections.location"
+        "sections.location",
+        "sections.policy"
       ]
     }
   }
