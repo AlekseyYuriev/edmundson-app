@@ -28,7 +28,8 @@
         "sections.partners",
         "sections.location",
         "sections.policy",
-        "sections.terms"
+        "sections.terms",
+        "sections.news"
       ]
     }
   }

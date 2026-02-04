@@ -77,3 +77,23 @@ export interface RichTextData {
     },
   ];
 }
+
+export interface NewsData {
+  title: string;
+  blogs: BlogData[];
+}
+
+export interface BlogData {
+  id: number;
+  title: string;
+  author: string;
+  date: string;
+  image?: { url?: string };
+  link: string;
+  tags: TagData[];
+}
+
+export interface TagData {
+  id: number;
+  tag: string;
+}

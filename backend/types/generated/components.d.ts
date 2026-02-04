@@ -23,6 +23,17 @@ export interface SectionsLocation extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsNews extends Struct.ComponentSchema {
+  collectionName: 'components_sections_news';
+  info: {
+    displayName: 'news';
+  };
+  attributes: {
+    blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionsPartners extends Struct.ComponentSchema {
   collectionName: 'components_sections_partners';
   info: {
@@ -171,6 +182,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'sections.hero': SectionsHero;
       'sections.location': SectionsLocation;
+      'sections.news': SectionsNews;
       'sections.partners': SectionsPartners;
       'sections.policy': SectionsPolicy;
       'sections.services': SectionsServices;

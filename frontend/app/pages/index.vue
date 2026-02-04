@@ -4,12 +4,14 @@ import HeroSection from '~/components/home-sections/HeroSection.vue';
 import PartnersSection from '~/components/home-sections/Partners/PartnersSection.vue';
 import ServicesSection from '~/components/home-sections/Services/ServicesSection.vue';
 import LocationSection from '~/components/home-sections/Location/LocationSection.vue';
+import NewsSection from '~/components/home-sections/News/NewsSection.vue';
 
 const sectionMap = {
   'sections.hero': HeroSection,
   'sections.services': ServicesSection,
   'sections.partners': PartnersSection,
   'sections.location': LocationSection,
+  'sections.news': NewsSection,
 };
 
 const { data, isLoading, error } = usePages();
