@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_terms",
+  "info": {
+    "displayName": "terms"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

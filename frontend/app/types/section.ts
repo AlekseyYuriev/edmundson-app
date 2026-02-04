@@ -67,7 +67,7 @@ export interface AddressData {
   postcode: string;
 }
 
-export interface PolicyData {
+export interface RichTextData {
   type: string;
   children: [
     {

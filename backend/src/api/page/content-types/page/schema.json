@@ -27,7 +27,8 @@
         "sections.services",
         "sections.partners",
         "sections.location",
-        "sections.policy"
+        "sections.policy",
+        "sections.terms"
       ]
     }
   }

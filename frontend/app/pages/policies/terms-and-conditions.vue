@@ -1,32 +1,43 @@
 <script setup lang="ts">
+import { usePages } from '~/composables/usePages';
+import TermsBlock from '~/components/TermsBlock.vue';
+import type { PageSection } from '~/types/strapi';
+
 useSeoMeta({
-  title: 'Terms & Conditions',
+  title: 'Terms and Conditions',
   description: 'Our terms and conditions.',
 });
+
+const { data, isLoading, error } = usePages('terms-and-conditions', 'terms');
+
+const sectionData = computed(
+  () => (data.value?.data?.[0]?.sections?.[0] as PageSection) || []
+);
 </script>
 
 <template>
-  <div class="mx-auto min-h-[calc(100vh-20.75rem)] w-full max-w-5xl px-6 py-10">
-    <h1 class="text-3xl font-bold text-[var(--ee_color_text)]">
-      Terms &amp; Conditions
+  <LoadingSpinner v-if="isLoading" />
+  <div
+    v-if="error"
+    class="flex h-full min-h-[calc(100vh-20.75rem)] items-center justify-center"
+  >
+    <h1 class="text-2xl font-bold">
+      Error loading page. Please try again later.
     </h1>
-    <p class="mt-2 text-base text-[var(--ee_color_text)]/80">
-      This page is under development.
-    </p>
-
-    <div
-      class="mt-8 rounded-xl border border-[var(--ee_card_border)] bg-white p-6"
-    >
-      <p class="text-sm text-[var(--ee_color_text)]/75">
-        Put your terms content here (use, limitations, liability, governing law,
-        etc).
-      </p>
-      <NuxtLink
-        to="/"
-        class="mt-4 inline-block text-sm font-semibold text-[var(--ee_primary)] hover:underline"
-      >
-        Back to Home
-      </NuxtLink>
+  </div>
+  <div
+    v-else
+    class="pt-lg mb-ms mt-[48px] flex h-full min-h-[calc(100vh-20.75rem)] flex-col items-center px-[160px]"
+  >
+    <h1 class="text-[var(--ee_color_text) pb-ms text-[48px] font-bold">
+      {{ sectionData.title }}
+    </h1>
+    <div class="flex flex-col gap-4">
+      <TermsBlock
+        v-for="block in sectionData.content"
+        :key="block.id"
+        :data="block"
+      />
     </div>
   </div>
 </template>

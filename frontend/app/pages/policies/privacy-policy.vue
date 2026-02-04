@@ -8,7 +8,7 @@ useSeoMeta({
   description: 'Our privacy policy.',
 });
 
-const { data, isLoading, error } = usePages('privacy-policy');
+const { data, isLoading, error } = usePages('privacy-policy', 'policy');
 
 const sectionData = computed(
   () => (data.value?.data?.[0]?.sections?.[0] as PageSection) || []
