@@ -29,7 +29,8 @@
         "sections.location",
         "sections.policy",
         "sections.terms",
-        "sections.news"
+        "sections.news",
+        "sections.locator"
       ]
     }
   }

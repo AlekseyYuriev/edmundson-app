@@ -693,6 +693,35 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLocatorAppLocatorApp extends Struct.CollectionTypeSchema {
+  collectionName: 'locator_apps';
+  info: {
+    displayName: 'Locator app';
+    pluralName: 'locator-apps';
+    singularName: 'locator-app';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::locator-app.locator-app'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
@@ -721,6 +750,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'sections.policy',
         'sections.terms',
         'sections.news',
+        'sections.locator',
       ]
     >;
     slug: Schema.Attribute.UID;
@@ -1337,6 +1367,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::location.location': ApiLocationLocation;
+      'api::locator-app.locator-app': ApiLocatorAppLocatorApp;
       'api::page.page': ApiPagePage;
       'api::partner-card.partner-card': ApiPartnerCardPartnerCard;
       'api::service-card.service-card': ApiServiceCardServiceCard;

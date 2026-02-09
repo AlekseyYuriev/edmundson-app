@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_locators",
+  "info": {
+    "displayName": "locator"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "locator_apps": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::locator-app.locator-app"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

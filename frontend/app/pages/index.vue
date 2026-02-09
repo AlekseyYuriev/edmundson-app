@@ -5,6 +5,7 @@ import PartnersSection from '~/components/home-sections/Partners/PartnersSection
 import ServicesSection from '~/components/home-sections/Services/ServicesSection.vue';
 import LocationSection from '~/components/home-sections/Location/LocationSection.vue';
 import NewsSection from '~/components/home-sections/News/NewsSection.vue';
+import LocatorSection from '~/components/home-sections/Locator/LocatorSection.vue';
 
 const sectionMap = {
   'sections.hero': HeroSection,
@@ -12,6 +13,7 @@ const sectionMap = {
   'sections.partners': PartnersSection,
   'sections.location': LocationSection,
   'sections.news': NewsSection,
+  'sections.locator': LocatorSection,
 };
 
 const { data, isLoading, error } = usePages();

@@ -23,6 +23,21 @@ export interface SectionsLocation extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsLocator extends Struct.ComponentSchema {
+  collectionName: 'components_sections_locators';
+  info: {
+    displayName: 'locator';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    locator_apps: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::locator-app.locator-app'
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionsNews extends Struct.ComponentSchema {
   collectionName: 'components_sections_news';
   info: {
@@ -182,6 +197,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'sections.hero': SectionsHero;
       'sections.location': SectionsLocation;
+      'sections.locator': SectionsLocator;
       'sections.news': SectionsNews;
       'sections.partners': SectionsPartners;
       'sections.policy': SectionsPolicy;

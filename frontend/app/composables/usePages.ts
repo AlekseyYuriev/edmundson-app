@@ -17,7 +17,8 @@ export const usePages = (slug: string = HOME_SLUG, page: string = '') => {
         '&populate[sections][on][sections.location][populate][locations][populate]=*' +
         '&populate[sections][on][sections.partners][populate][partner_cards][populate]=*' +
         '&populate[sections][on][sections.services][populate][service_cards][populate]=*' +
-        '&populate[sections][on][sections.news][populate][blogs][populate]=*'
+        '&populate[sections][on][sections.news][populate][blogs][populate]=*' +
+        '&populate[sections][on][sections.locator][populate][locator_apps][populate]=*'
       : `${base}&populate[sections][on][sections.${page}][populate]=*`;
 
   return useQuery({

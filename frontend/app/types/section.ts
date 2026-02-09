@@ -97,3 +97,16 @@ export interface TagData {
   id: number;
   tag: string;
 }
+
+export interface LocatorData {
+  title: string;
+  description: RichTextData[];
+  locator_apps: LocatorAppData[];
+}
+
+export interface LocatorAppData {
+  id: number;
+  title: string;
+  image?: { url?: string };
+  link: string;
+}
