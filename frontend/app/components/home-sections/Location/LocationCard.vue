@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { LocationCardData } from '~/types/section';
 import EEIconMap from '~/components/icon/EEIconMap.vue';
+import ContactForm from '~/components/ContactForm.vue';
 
 const props = defineProps<{
   data: LocationCardData;
@@ -9,6 +10,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   'view-on-map': [location: LocationCardData];
 }>();
+
+const showContactForm = ref(false);
 </script>
 
 <template>
@@ -42,12 +45,23 @@ const emit = defineEmits<{
       </div>
     </div>
 
-    <button
-      type="button"
-      class="mt-sm mb-md py-xs px-xs inline-flex w-fit cursor-pointer items-center self-start rounded-lg border border-[var(--ee_primary)] text-[14px] font-semibold text-[var(--ee_primary)] transition-colors hover:bg-[var(--ee_primary)] hover:text-white"
-      @click="emit('view-on-map', props.data)"
-    >
-      VIEW ON MAP
-    </button>
+    <div class="gap-ms flex">
+      <button
+        type="button"
+        class="mt-sm mb-md py-xs px-xs inline-flex w-fit cursor-pointer items-center self-start rounded-lg border border-[var(--ee_primary)] text-[14px] font-semibold text-[var(--ee_primary)] transition-colors hover:bg-[var(--ee_primary)] hover:text-white"
+        @click="emit('view-on-map', props.data)"
+      >
+        VIEW ON MAP
+      </button>
+      <button
+        type="button"
+        @click="showContactForm = true"
+        class="mt-sm mb-md py-xs px-xs inline-flex w-fit cursor-pointer items-center self-start rounded-lg border border-[var(--ee_secondary)] bg-[var(--ee_secondary)] text-[14px] font-semibold text-[var(--ee_white)] transition-colors hover:text-[var(--ee_black)]"
+      >
+        CONTACT US
+      </button>
+    </div>
   </div>
+
+  <ContactForm v-if="showContactForm" @close="showContactForm = false" />
 </template>
